@@ -1,5 +1,5 @@
 
-const Movie = require('../models/movie');
+const Flight = require('../models/flight');
 
 module.exports = {
     new: newFlight,
@@ -27,11 +27,10 @@ function create(req, res) {
       console.log(flight);
       res.redirect('/flights');
     });
-  }
+}
 
 function index(req, res) {
-
-    //flights refers to found Movie in MongoDB
+    //flights refers to found Flight in MongoDB
     Flight.find({}, function(err, flights) {
         if (err) {
             console.log(err);
