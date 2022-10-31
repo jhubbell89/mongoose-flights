@@ -4,7 +4,8 @@ const Flight = require('../models/flight');
 module.exports = {
     new: newFlight,
     create,
-    index
+    index,
+    
 };
   
 function index(req, res) {
