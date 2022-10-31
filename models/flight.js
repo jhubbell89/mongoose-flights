@@ -7,8 +7,11 @@ const Schema = mongoose.Schema;
 const flightSchema = new Schema({
     airline: String,
     airport: String,
-    flightNo: Number,
-    departs: Date
+    flightNo: {
+        type: Number,
+        required: true
+    },
+    departs: Number
 })
 
 // Compile the schema into a model and export it

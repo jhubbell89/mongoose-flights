@@ -1,0 +1,29 @@
+<%- include('../partials/boilerplate')  %>
+<%- include('../partials/navbar') %> 
+
+<title>Mongoose Flights</title>
+  <h1>Flight List</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Airline</th>
+        <th>Airport</th>
+        <th>Flight Number</th>
+        <th>Departs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Write the line of EJS to iterate over movies using forEach -->
+        <% movies.forEach(function(m) { %> 
+            <tr>
+                <td><%= m.airline %></td>
+
+                <td><%= m.airport %></td>
+
+                <td><%= m.flightNo %></td>
+                <td><%= m.departs %></td>
+                
+            </tr>
+        <% }); %> 
+    </tbody>
+  </table>
