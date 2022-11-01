@@ -3,6 +3,8 @@
 
 <title>Flight <%= flight.flightNo %> </title>
 
+<body>
+    
 <h2>Flight:</h2>
 
 <p><b>ID#:</b> <%= flight._id %></p>
@@ -10,23 +12,15 @@
 <p><b>Airline:</b> <%= flight.airline %></p>
 <p><b>Flight Number:</b> <%= flight.flightNo %></p>
 <p><b>Depature Date/Time:</b> <%= flight.departs %></p>
-<p><b>Arrival Airport:</b> <%= flight.departs %></p>
-<p><b>Arrival Date/Time:</b> <%= flight.departs %></p>
+<p><b>Arrival Airport:</b> <%= flight.arrivalAirport %></p>
+<p><b>Arrival Date/Time:</b> <%= flight.arrival %></p>
 <br>
 <br>
 
-<h3>Add An Arrival</h3>
-<form action="" method="" ></form>
-<label for=""><b>Airport:</b>  </label>
-<select name="" id="">
-    <option value=""></option>
-    <option value="American">American</option>
-    <option value="Southwest">Southwest</option>
-    <option value="United">United</option>
-</select>
-<br>
-<label for=""><b>Arrival Date/Time:</b> </label>
-<select name="" id="">
+<h3>Add A Destination:</h3>
+<form action="/flights/<%= flight._id %>/destinations" method="POST" >
+<label for="arrivalAirport"><b>Airport:</b>  </label>
+<select name="arrivalAirport" id="arrivalAirport">
     <option value="AUS">AUS</option>
     <option value="DFW">DFW</option>
     <option value="DEN" selected>DEN</option>
@@ -34,5 +28,12 @@
     <option value="SAN">SAN</option>
 </select>
 <br>
+<label for="Arrival"><b>Arrival Date/Time:</b> 
+    <input type="datetime-local" name="arrival">
+</label>
+
+<br>
 <br>
 <input type="submit" value="Add Arrival">
+</form>
+</body>
