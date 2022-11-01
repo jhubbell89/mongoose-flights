@@ -1,3 +1,38 @@
 <%- include('../partials/boilerplate') %> 
 <%- include('../partials/navbar') %> 
 
+<title>Flight <%= flight.flightNo %> </title>
+
+<h2>Flight:</h2>
+
+<p><b>ID#:</b> <%= flight._id %></p>
+<p><b>Departure Airport:</b> <%= flight.airport %></p>
+<p><b>Airline:</b> <%= flight.airline %></p>
+<p><b>Flight Number:</b> <%= flight.flightNo %></p>
+<p><b>Depature Date/Time:</b> <%= flight.departs %></p>
+<p><b>Arrival Airport:</b> <%= flight.departs %></p>
+<p><b>Arrival Date/Time:</b> <%= flight.departs %></p>
+<br>
+<br>
+
+<h3>Add An Arrival</h3>
+<form action="" method="" ></form>
+<label for=""><b>Airport:</b>  </label>
+<select name="" id="">
+    <option value=""></option>
+    <option value="American">American</option>
+    <option value="Southwest">Southwest</option>
+    <option value="United">United</option>
+</select>
+<br>
+<label for=""><b>Arrival Date/Time:</b> </label>
+<select name="" id="">
+    <option value="AUS">AUS</option>
+    <option value="DFW">DFW</option>
+    <option value="DEN" selected>DEN</option>
+    <option value="LAX">LAX</option>
+    <option value="SAN">SAN</option>
+</select>
+<br>
+<br>
+<input type="submit" value="Add Arrival">

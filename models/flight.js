@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 var destinationSchema = new Schema({
-    airport: String,
+    arrivalAirport: String,
     enum: ['American', 'Southwest', 'United'],
     arrival: Date
 })
