@@ -6,6 +6,8 @@ var destinationSchema = new Schema({
     arrivalAirport: String,
     enum: ['American', 'Southwest', 'United'],
     arrival: Date
+},{
+    timestamps: true
 })
 
 const flightSchema = new Schema({
