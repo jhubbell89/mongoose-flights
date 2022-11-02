@@ -5,15 +5,14 @@
 
 <body>
     
-<h2>Flight:</h2>
+<h2>Flight: <%= flight.flightNo %> To <%= flight.airport %>  </h2>
 
 <p><b>ID#:</b> <%= flight._id %></p>
 <p><b>Departure Airport:</b> <%= flight.airport %></p>
 <p><b>Airline:</b> <%= flight.airline %></p>
 <p><b>Flight Number:</b> <%= flight.flightNo %></p>
 <p><b>Depature Date/Time:</b> <%= flight.departs %></p>
-<p><b>Arrival Airport:</b> <%= flight.arrivalAirport %></p>
-<p><b>Arrival Date/Time:</b> <%= flight.arrival %></p>
+
 <br>
 <br>
 
@@ -31,9 +30,35 @@
 <label for="Arrival"><b>Arrival Date/Time:</b> 
     <input type="datetime-local" name="arrival">
 </label>
-
 <br>
 <br>
 <input type="submit" value="Add Arrival">
 </form>
+<br>
+<% if (flight.destinations.length) { %>
+    <table>
+      <thead>
+        <tr>
+            <th>Arrival Airport</th>
+            <th>Arrival Date/Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <% flight.destinations.forEach(function(r) { %>
+         
+          <tr>
+            <td><%= r.arrivalAirport %></td>
+            <td><%= r.arrival %></td>
+          </tr>
+          <% }); %>
+          <tr>
+            <td colspan="2"></td>
+        
+          </tr>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h5>No Reviews Yet</h5>
+  <% } %>
 </body>
