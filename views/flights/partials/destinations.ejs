@@ -1,0 +1,26 @@
+<% if (flight.destinations.length) { %>
+    <table>
+      <thead>
+        <tr>
+            <th>Arrival Airport</th>
+            <th>Arrival Date/Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <% flight.destinations.forEach(function(r) { %>
+         
+          <tr>
+            <td><%= r.arrivalAirport %></td>
+            <td><%= r.arrival %></td>
+          </tr>
+          <% }); %>
+          <tr>
+            <td colspan="2"></td>
+        
+          </tr>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h5>No Destination Yet</h5>
+  <% } %>
