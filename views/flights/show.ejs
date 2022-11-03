@@ -64,28 +64,3 @@
   <input name="seat" required pattern="[A-F][1-9]\d?">
 </form>
 <br>
-<% if (ticket.ticketSchema.length) { %>
-  <table>
-    <thead>
-      <tr>
-          <th>Seat</th>
-          <th>Price</th>
-          <th>Flight ID</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% ticket.ticketSchema.forEach(function(f) { %>
-        <tr>
-          <td><%= f.seat %></td>
-          <td>$<%= f.price %></td>
-          <td><%= flight._id %></td>
-        </tr>
-        <% }); %>
-        <tr>
-          <td colspan="3"></td>
-        </tr>
-    </tbody>
-  </table>
-<% } else { %>
-  <h5>No Tickets Yet</h5>
-<% } %>
