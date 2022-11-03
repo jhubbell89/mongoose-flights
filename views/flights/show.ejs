@@ -2,8 +2,6 @@
 <%- include('../partials/navbar') %> 
 
 <title>Flight <%= flight.flightNo %> </title>
-
-
     
 <h2>Flight: <%= flight.flightNo %> To <%= flight.airport %>  </h2>
 
@@ -27,9 +25,10 @@
     <option value="SAN">SAN</option>
 </select>
 <br>
-<label for="Arrival"><b>Arrival Date/Time:</b> 
-    <input type="datetime-local" name="arrival">
-</label>
+<!-- moved label to end of label from after input. just in case it doesnt work -->
+<label for="Arrival"><b>Arrival Date/Time:</b></label>
+<input type="datetime-local" name="arrival">
+
 <br>
 <br>
 <input type="submit" value="Add Arrival">
@@ -44,17 +43,14 @@
       </tr>
     </thead>
     <tbody>
-      
-      <% flight.destinations.forEach(function(r) { %>
-       
+      <% flight.destinations.forEach(function(d) { %>
         <tr>
-          <td><%= r.arrivalAirport %></td>
-          <td><%= r.arrival %></td>
+          <td><%= d.arrivalAirport %></td>
+          <td><%= d.arrival %></td>
         </tr>
         <% }); %>
         <tr>
           <td colspan="2"></td>
-      
         </tr>
     </tbody>
   </table>
@@ -62,4 +58,34 @@
   <h5>No Destination Yet</h5>
 <% } %>
 <br>
+<h3>Add A Ticket:</h3>
+<form action="/flights" method="">
+  <label for="seat"><b>Seat:</b> </label>
+  <input name="seat" required pattern="[A-F][1-9]\d?">
+</form>
 <br>
+<% if (ticket.ticketSchema.length) { %>
+  <table>
+    <thead>
+      <tr>
+          <th>Seat</th>
+          <th>Price</th>
+          <th>Flight ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% ticket.ticketSchema.forEach(function(f) { %>
+        <tr>
+          <td><%= f.seat %></td>
+          <td>$<%= f.price %></td>
+          <td><%= flight._id %></td>
+        </tr>
+        <% }); %>
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+    </tbody>
+  </table>
+<% } else { %>
+  <h5>No Tickets Yet</h5>
+<% } %>
