@@ -11,7 +11,7 @@
 <p><b>Flight Number:</b> <%= flight.flightNo %></p>
 <p><b>Depature Date/Time:</b> <%= flight.departs %></p>
 <br>
-<!-- <a href="addTickets">Add a Ticket</a> -->
+<a href="/flights/<%= flight._id %>/tickets/new">Add a Ticket</a>
 <br>
 <br>
 <h3>Add A Destination:</h3>
@@ -57,3 +57,23 @@
 <% } else { %>
   <h5>No Destination Yet</h5>
 <% } %>
+
+
+
+  <table>
+    <thead>
+      <tr>
+          <th>Seat</th>
+          <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><%= ticket.seat %></td>
+          <td>$<%= ticket.price %></td>
+        </tr>
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+    </tbody>
+  </table>
