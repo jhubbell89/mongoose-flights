@@ -15,13 +15,17 @@ function newTicket(req, res) {
   })
 }
 
-function create(req, res) {
-  Ticket.findById(req.params.id, function(err, flight) {
-    console.log('test in create')
-    flight.tickets.push(req.body);
-    flight.save(function(err) {
-      res.redirect(`/flights/${flight._id}`, {flight});
-    });
-  });
+function create(req,res){
+  var ticket = new Ticket(req.body)
+  ticket.save(function(err){})
+  Flight.findById(req.params.id,function(err,flight){
+      console.log(req.params.id)
+      console.log(flight)
+      flight.tickets.push(ticket)
+      console.log(flight)
+      flight.save(function(err){
+          res.redirect(`/flights/${flight._id}`, flight, ticket )
+      })
+  })
 }
 
