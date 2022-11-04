@@ -10,10 +10,10 @@
 <p><b>Airline:</b> <%= flight.airline %></p>
 <p><b>Flight Number:</b> <%= flight.flightNo %></p>
 <p><b>Depature Date/Time:</b> <%= flight.departs %></p>
-
+<br>
+<!-- <a href="addTickets">Add a Ticket</a> -->
 <br>
 <br>
-
 <h3>Add A Destination:</h3>
 <form action="/flights/<%= flight._id %>/destinations" method="POST" >
 <label for="arrivalAirport"><b>Airport:</b>  </label>
@@ -28,8 +28,8 @@
 <!-- moved label to end of label from after input. just in case it doesnt work -->
 <label for="Arrival"><b>Arrival Date/Time:</b></label>
 <input type="datetime-local" name="arrival">
-
 <br>
+
 <br>
 <input type="submit" value="Add Arrival">
 </form>
@@ -57,10 +57,3 @@
 <% } else { %>
   <h5>No Destination Yet</h5>
 <% } %>
-<br>
-<h3>Add A Ticket:</h3>
-<form action="/flights" method="">
-  <label for="seat"><b>Seat:</b> </label>
-  <input name="seat" required pattern="[A-F][1-9]\d?">
-</form>
-<br>
