@@ -16,12 +16,13 @@ function newTicket(req, res) {
 }
 
 function create(req, res){
+  console.log('randomtext')
   var ticket = new Ticket(req.body)
   ticket.save(function(err){})
   Flight.findById(req.params.id,function(err, flight){
-      flight.tickets.push(ticket)
+    console.log('test')
       flight.save(function(err){
-          res.redirect(`/flights/${flight._id}`, flight, ticket )
+          res.redirect(`/flights/${flight.id}`, flight, ticket )
       })
   })
 }

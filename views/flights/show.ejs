@@ -68,10 +68,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><%= flight.seat %></td>
-        <td><%= flight.price %></td>
-      </tr>
+      <% tickets.forEach(function(t) { %>
+        <tr>
+          <td><%= t.seat %></td>
+          <td>$<%= t.price %></td>
+        </tr>
+        <% }); %>
         <tr>
           <td colspan="2"></td>
         </tr>
